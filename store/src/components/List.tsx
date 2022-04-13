@@ -1,6 +1,6 @@
 import { IpcNetConnectOpts } from "net"
 import React from "react"
-import {IState as IProps} from "../App"
+import {IAddState as IProps} from "../App"
 
 
 
@@ -16,9 +16,12 @@ const List: React.FC<IProps> = ({items}) => {
                         <h2>{items.name}</h2>
                     </div>
                     <p>{items.price} MDL.</p>
+                    <p>{items.note}/10</p>
+                    <p>{items.producerCountry}</p>
                     <p className="List-note">
                         {items.description}
                     </p>
+                    <p>{items.amountInStore} in store</p>
                 </li>
             )
         })

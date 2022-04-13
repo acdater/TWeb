@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {IState as Props} from "../App"
+import {IAddState as Props} from "../App"
 import { Button } from "antd"
 import { parseJsonText } from "typescript";
 
@@ -15,7 +15,10 @@ const AddToList : React.FC<IPropos> = ({items, setItems}) => {
         name:"",
         price:"",
         img:"",
-        description:""
+        description:"",
+        note:0,
+        amountInStore:0,
+        producerCountry:"unknown"
     })
 
     const hanldeChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) : void => {
@@ -46,7 +49,10 @@ const AddToList : React.FC<IPropos> = ({items, setItems}) => {
                 name:input.name,
                 price: parseInt(input.price),
                 url:input.img,
-                description:input.description
+                note:input.note,
+                description:input.description,
+                producerCountry:input.producerCountry,
+                amountInStore:input.amountInStore
             }
         ])
 
@@ -79,6 +85,30 @@ const AddToList : React.FC<IPropos> = ({items, setItems}) => {
             value={input.img}
             onChange={hanldeChange}
             name="img"
+            />
+            <input 
+            type="number"
+            placeholder="note: 1-10"
+            className="AddToList-input"
+            value={input.note}
+            onChange={hanldeChange}
+            name="note"
+            />
+            <input 
+            type="text" 
+            placeholder="Producer Country: France"
+            className="AddToList-input"
+            value={input.producerCountry}
+            onChange={hanldeChange}
+            name="producerCountry"
+            />
+            <input 
+            type="number"
+            placeholder="Amount In Store: 75"
+            className="AddToList-input"
+            value={input.amountInStore}
+            onChange={hanldeChange}
+            name="amountInStore"
             />
             <textarea   
             placeholder="Description: Pencil for professional artists!"
