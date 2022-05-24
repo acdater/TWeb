@@ -18,17 +18,20 @@ function App() {
     }, [])
 
     return (
-        <Router>
+        <><Router>
             <Switch>
-                <Route exact path="/login" component={login}/>
+                <Route exact path="/login" component={login} />
                 <Route
                     exact
                     path="/profile"
-                    component={() => <Profile authorized="true"/>}>
+                    component={() => <Profile authorized="true" />}>
 
                 </Route>
             </Switch>
-        </Router>
+        </Router><Layout className="layout">
+                <HeaderLayout />
+                <ContentLayout />
+            </Layout></>
     )
 }
 
